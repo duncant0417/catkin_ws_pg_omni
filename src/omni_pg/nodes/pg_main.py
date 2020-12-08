@@ -49,8 +49,12 @@ class POLICY:
         model = Sequential()
 
 
-        model.add(Dense(128, activation='relu', init='he_uniform' ,input_shape=[self.state_size],))
-        model.add(Dense(128, activation='relu', init='he_uniform'))
+        ##model.add(Dense(128, activation='relu', init='he_uniform' ,input_shape=[self.state_size],))
+        ##model.add(Dense(128, activation='relu', init='he_uniform'))
+        ##model.add(Dense(self.action_size, activation='softmax'))
+
+        model.add(Dense(128, kernel_initializer="he_uniform", activation="relu", input_shape=[24]))
+        model.add(Dense(128, kernel_initializer="he_uniform", activation="relu"))
         model.add(Dense(self.action_size, activation='softmax'))
 
         opt = Adam(lr=self.learning_rate)
@@ -76,11 +80,11 @@ class POLICY:
         state = np.reshape(state, (1, 24))
 
         aprob = self.model.predict(state) #.flatten()
-        aprob = np.reshape(aprob, (8,))
+        aprob = np.reshape(aprob, (self.action_size,))
         self.probs.append(aprob)
 
         prob = aprob / np.sum(aprob)
-        prob = np.reshape(prob, (8,))
+        prob = np.reshape(prob, (self.action_size,))
 
         action = np.random.choice(self.action_size, 1, p=prob)[0]
 
@@ -89,28 +93,37 @@ class POLICY:
 
 
     def discount_rewards(self, rewards):
+        print("rewards" ,rewards)
+        #print("rewards.shape" ,rewards.shape)
+        
         discounted_rewards = np.zeros_like(rewards)
-        running_add = 0
+        R = 0
         for t in reversed(range(0, rewards.size)):
-            if rewards[t] != 0:
-                running_add = 0
-            running_add = running_add * self.gamma + rewards[t]
-            discounted_rewards[t] = running_add
+            #print("     rewards[%d][0] : %d"%(t ,rewards[t][0]))
+            R = R * self.gamma + rewards[t][0]
+            discounted_rewards[t][0] = R
+            #print("discounted_rewards[%d][0] : %d"%(t ,discounted_rewards[t][0]))
+
+        print("discounted_rewards" ,discounted_rewards)
         return discounted_rewards
 
 
 
     def train(self):
-
+        print("In train")
 
         gradients = np.vstack(self.gradients)
         rewards = np.vstack(self.rewards)
+
+
         rewards = self.discount_rewards(rewards)
+
         rewards = (rewards - np.mean(rewards)) / (np.std(rewards) + 1e-7)
+
         gradients *= rewards
+        print("gradients" ,gradients)
 
         X = np.squeeze(np.vstack([self.states]) ,axis = 1)
-
         Y = self.probs + self.learning_rate * np.vstack([gradients])
 
         '''
@@ -120,8 +133,10 @@ class POLICY:
         # self.state.shape = (1, 1, 24)
         # X.shape = (1, 24)
         '''
-        self.model.train_on_batch(X, Y)
+        loss = self.model.train_on_batch(X, Y)
+        print("                                         loss :",loss)
         self.states, self.probs, self.gradients, self.rewards = [], [], [], []
+        self.model.summary()
 
 
 
@@ -135,7 +150,7 @@ class POLICY:
 
 
 N_STATE = 24
-N_ACTION = 8 
+N_ACTION = 5 
 
 
 if __name__ == '__main__':
@@ -143,21 +158,20 @@ if __name__ == '__main__':
     rospy.init_node('pg_main')
     env = Env()
     state = env.reset()
-    print(env.getRobotStatus())
+
+    agent = POLICY(N_STATE ,N_ACTION)
+    #agent.load('ten.h5')
 
     episode =0
 
-
-    for episode in range(10000):
+    for episode in range(50000):
         score =0
 
-        
-        agent = POLICY(N_STATE ,N_ACTION)
-        #agent.load('pong.h5')
 
+        
         step = 0
         for _ in range(500) :
-            
+            done =False            
             print("step :",step)
             print("******************************************************************************")
             step += 1
@@ -169,6 +183,7 @@ if __name__ == '__main__':
 
             print("Reward for this step :",reward)
             print("accumulation of reward :",score)
+            print("done :",done)
 
             if step >= 100:
                 done = True
@@ -177,12 +192,24 @@ if __name__ == '__main__':
             if done :
                 episode += 1
                 state = env.reset()
-                if episode < 5000:
+                if episode < 50000:
                     agent.train()
                     print('Episode: %d - Score: %f.' % (episode, score))
                     
                     if episode > 1 and episode % 10 == 0:
-                        agent.save('pong.h5')
+                        agent.save('ten.h5')
+
+                    if episode > 1 and episode % 100 == 0:
+                        agent.save('hun.h5')
+
+                    if episode > 1 and episode % 1000 == 0:
+                        agent.save('thoudsen.h5')
+
+                    if episode > 1 and episode % 5000 == 0:
+                        agent.save('fivethoudsen.h5')
+
+                    if episode > 1 and episode % 10000 == 0:
+                        agent.save('tenthoudsen.h5')
                 
                 break
 

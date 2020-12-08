@@ -167,9 +167,9 @@ class Env():
     # action[0] = linear velocity along x direction
     # action[1] = angular velocity around z axis
     '''
-    def pubAction_x_w(self,action):
-        self.actionVector.linear.x = action[0]
-        self.actionVector.angular.z = action[1]
+    def pubAction_x_w(self,x ,w):
+        self.actionVector.linear.x = x
+        self.actionVector.angular.z = w
 
         #public the message to topic cmd_vel
         self.pub_cmd_vel.publish(self.actionVector)
@@ -189,11 +189,11 @@ class Env():
             vel_y = 0.0
 
         elif action == 1:
-            vel_x = -0.2
-            vel_y = 0.0
+            vel_x = 0.0
+            vel_y = 0.2
 
         elif action == 2:
-            vel_x = 0.0
+            vel_x = 0.2
             vel_y = 0.2
 
         elif action == 3:
@@ -202,8 +202,9 @@ class Env():
 
         elif action == 4:
             vel_x = 0.2
-            vel_y = 0.2
-
+            vel_y = -0.2
+        
+        '''
         elif action == 5:
             vel_x = 0.2
             vel_y = -0.2
@@ -215,6 +216,7 @@ class Env():
         elif action == 7:
             vel_x = -0.2
             vel_y = -0.2 
+        '''
 
         self.pubAction_x_y(vel_x ,vel_y)
         time.sleep(0.2)
@@ -247,29 +249,36 @@ class Env():
  
 
     def setReward(self ,new_state ,x ,prev_x):
-
+        min_new_state = min(new_state)
         if self.isGoal(x):
             print("Goal !")
             done = True
-            reward = 100
+            reward = 100.0
 
         elif self.isCollided(new_state) :
             print("Collided detected !")
             done = True
-            reward = -10
-
-        elif x - prev_x > 0:
-            print("Continue.... !")
-            done = False
-            reward = 2
-
-        elif x -prev_x < 0:
-            done = False
-            reward = -3
+            reward = ( (x - self.goal_x)+1.4 ) * 10.0
+            reward += -6.0
 
         else:
-            done = False
-            reward = 0
+            if min_new_state < 0.2 :
+                print("To close.... !")
+                done = False
+                reward = -0.5
+
+            elif x - prev_x > 0:
+                print("Continue.... !")
+                done = False
+                reward = 1.0
+
+            elif x -prev_x < 0:
+                done = False
+                reward = -1.0
+
+            else:
+                done = False
+                reward = 0
 
         print("Reward :",reward)
         return done ,reward
@@ -290,7 +299,7 @@ class Env():
 
         done ,reward = self.setReward(new_state ,self.robot_x ,self.prev_robot_x)
 
-        return new_state ,reward ,done
+        return new_state ,float(reward) ,done
 
 
     def reset(self):
@@ -304,8 +313,11 @@ class Env():
             print("gazebo/reset_simulation service call failed")
 
         #self.wait_topic_ready()
+        #self.pubAction_x_w(0 ,1)
+        #time.sleep(0.1)
+        #self.pubAction_x_w(0 ,0)
         self.pubAction_x_y(0 ,0)
-        time.sleep(1.0)
+        time.sleep(2.0)
 
         # Return state
         return self.getLaserScan()
