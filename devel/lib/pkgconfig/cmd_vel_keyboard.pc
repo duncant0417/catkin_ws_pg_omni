@@ -1,0 +1,8 @@
+prefix=/home/user/catkin_ws_pg_omni/devel
+
+Name: cmd_vel_keyboard
+Description: Description of cmd_vel_keyboard
+Version: 1.2.0
+Cflags: 
+Libs: -L${prefix}/lib 
+Requires: rospy geometry_msgs

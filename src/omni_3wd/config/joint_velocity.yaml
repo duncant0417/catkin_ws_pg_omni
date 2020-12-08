@@ -1,0 +1,32 @@
+open_base:
+
+    joint_state_controller:
+        type: joint_state_controller/JointStateController
+        publish_rate: 100
+
+    left_joint_velocity_controller:
+        type: velocity_controllers/JointVelocityController
+        joint: rim_left_joint
+
+    back_joint_velocity_controller:
+        type: velocity_controllers/JointVelocityController
+        joint: rim_back_joint
+
+    right_joint_velocity_controller:
+        type: velocity_controllers/JointVelocityController
+        joint: rim_right_joint
+
+/open_base/gazebo_ros_control:   
+  pid_gains:
+    rim_left_joint:
+      p: 1.0
+      i: 0.0
+      d: 0.0
+    rim_back_joint:
+      p: 1.0
+      i: 0.0
+      d: 0.0
+    rim_right_joint:
+      p: 1.0
+      i: 0.0
+      d: 0.0

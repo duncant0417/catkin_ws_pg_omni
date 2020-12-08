@@ -1,0 +1,8 @@
+prefix=/home/user/catkin_ws_pg_omni/devel
+
+Name: teleop_keyboard_omni3
+Description: Description of teleop_keyboard_omni3
+Version: 0.0.0
+Cflags: 
+Libs: -L${prefix}/lib 
+Requires: 
