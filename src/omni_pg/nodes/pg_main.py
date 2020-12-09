@@ -35,7 +35,7 @@ class POLICY:
     def __init__(self, state_size, action_size):
         self.state_size = state_size
         self.action_size = action_size
-        self.gamma = 0.99
+        self.gamma = 0.9
         self.learning_rate = 0.001
         self.states = []
         self.gradients = []
@@ -180,26 +180,23 @@ if __name__ == '__main__':
             print("step :",step)
             print("******************************************************************************")
             step += 1
+            print("prev state :" ,state)
 
             action ,prob = agent.select_action(state)
-            state ,reward ,done = env.step(state ,action)
+            _state ,reward ,done = env.step(state ,action)
 
-            reward += step*0.1
-
-            score += reward
             agent.memorize(state ,action ,prob ,reward)
 
-            print("state :" ,state)
-            print("state[:6]" ,state[:6])
-            print("state[:-6]" ,state[-6:])
-
+            
+            score += reward
             print("Reward for this step :",reward)
-            print("accumulation of reward :",score)
             print("done :",done)
 
-            if step >= 100:
+            if step >= 1000:
                 done = True
 
+            # update old state
+            state = _state
 
             if done :
                 episode += 1
@@ -224,6 +221,7 @@ if __name__ == '__main__':
                         agent.save('tenthoudsen.h5')
                 
                 break
+
 
 
 

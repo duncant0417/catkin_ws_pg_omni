@@ -607,7 +607,7 @@
           <pose frame=''>0 0 0 0 -0 0</pose>
           <geometry>
             <cylinder>
-              <radius>0.07</radius>
+              <radius>0.1</radius>
               <length>0.5</length>
             </cylinder>
           </geometry>
@@ -706,7 +706,7 @@
           <pose frame=''>0 0 0 0 -0 0</pose>
           <geometry>
             <cylinder>
-              <radius>0.07</radius>
+              <radius>0.1</radius>
               <length>0.5</length>
             </cylinder>
           </geometry>
@@ -805,7 +805,7 @@
           <pose frame=''>0 0 0 0 -0 0</pose>
           <geometry>
             <cylinder>
-              <radius>0.07</radius>
+              <radius>0.1</radius>
               <length>0.5</length>
             </cylinder>
           </geometry>
@@ -904,7 +904,7 @@
           <pose frame=''>0 0 0 0 -0 0</pose>
           <geometry>
             <cylinder>
-              <radius>0.07</radius>
+              <radius>0.1</radius>
               <length>0.5</length>
             </cylinder>
           </geometry>
