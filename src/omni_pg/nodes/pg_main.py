@@ -28,6 +28,7 @@ from keras.models import Sequential
 from keras.layers import Dense, Reshape, Flatten
 from keras.optimizers import Adam
 from keras.layers.convolutional import Convolution2D
+from keras.utils import plot_model
 
 
 class POLICY:
@@ -59,7 +60,7 @@ class POLICY:
 
         opt = Adam(lr=self.learning_rate)
         model.compile(loss='categorical_crossentropy', optimizer=opt)
-
+        plot_model(model, to_file='model.png', show_shapes=True)
         return model
 
 
@@ -121,7 +122,7 @@ class POLICY:
         rewards = (rewards - np.mean(rewards)) / (np.std(rewards) + 1e-7)
 
         gradients *= rewards
-        print("gradients" ,gradients)
+        #print("gradients" ,gradients)
 
         X = np.squeeze(np.vstack([self.states]) ,axis = 1)
         Y = self.probs + self.learning_rate * np.vstack([gradients])
@@ -159,9 +160,13 @@ if __name__ == '__main__':
     env = Env()
     state = env.reset()
 
-    agent = POLICY(N_STATE ,N_ACTION)
-    #agent.load('ten.h5')
 
+
+
+
+    agent = POLICY(N_STATE ,N_ACTION)
+    agent.load('ten.h5')
+    
     episode =0
 
     for episode in range(50000):
@@ -170,16 +175,23 @@ if __name__ == '__main__':
 
         
         step = 0
-        for _ in range(500) :
+        for _ in range(1000) :
             done =False            
             print("step :",step)
             print("******************************************************************************")
             step += 1
 
             action ,prob = agent.select_action(state)
-            new_state ,reward ,done = env.step(action)
+            state ,reward ,done = env.step(state ,action)
+
+            reward += step*0.1
+
             score += reward
             agent.memorize(state ,action ,prob ,reward)
+
+            print("state :" ,state)
+            print("state[:6]" ,state[:6])
+            print("state[:-6]" ,state[-6:])
 
             print("Reward for this step :",reward)
             print("accumulation of reward :",score)

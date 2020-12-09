@@ -138,7 +138,7 @@ class Env():
         k = 0
         for _ in range(24):
             if scan_range[k] == float('inf') :
-                scan_range[k] = 100.0 
+                scan_range[k] = 2.0 
             k += 1
            
             
@@ -184,25 +184,36 @@ class Env():
 
 
     def takeAction(self ,action):
+        action_angle = 0
+        # 0
         if action == 0:
             vel_x = 0.2
             vel_y = 0.0
+            action_angle = 0
 
+        # 90
         elif action == 1:
             vel_x = 0.0
             vel_y = 0.2
+            action_angle = 90
 
+        # 45
         elif action == 2:
             vel_x = 0.2
             vel_y = 0.2
+            action_angle = 45
 
+        # -90
         elif action == 3:
             vel_x = 0.0
             vel_y = -0.2
+            action_angle = -90
 
+        # -45
         elif action == 4:
             vel_x = 0.2
             vel_y = -0.2
+            action_angle = -45
         
         '''
         elif action == 5:
@@ -220,6 +231,7 @@ class Env():
 
         self.pubAction_x_y(vel_x ,vel_y)
         time.sleep(0.2)
+        return action_angle
 
 
     def getNewState(self):
@@ -248,45 +260,52 @@ class Env():
 
  
 
-    def setReward(self ,new_state ,x ,prev_x):
-        min_new_state = min(new_state)
+    def setReward(self ,action_angle ,prev_state ,new_state ,x ,prev_x):
+        #min_new_state = min(new_state)
+        '''
+        state_forward = prev_state[0:2]
+        state_forward = np.append(state_forward ,prev_state[22])
+
+        state_f_left = prev_state[2:5]
+        state_left = prev_state[5:8]
+
+        state_right = prev_state[17:19]
+        state_f_right = prev_state[19:22]
+        '''
+
         if self.isGoal(x):
             print("Goal !")
             done = True
             reward = 100.0
+            print("Reward :",reward)
+            return done ,reward
 
         elif self.isCollided(new_state) :
             print("Collided detected !")
             done = True
-            reward = ( (x - self.goal_x)+1.4 ) * 10.0
-            reward += -6.0
+            reward = -10.0
+            print("Reward :",reward)
+            return done ,reward
 
+        
         else:
-            if min_new_state < 0.2 :
-                print("To close.... !")
-                done = False
-                reward = -0.5
-
-            elif x - prev_x > 0:
+            if x - prev_x > 0.02:
                 print("Continue.... !")
                 done = False
-                reward = 1.0
-
-            elif x -prev_x < 0:
-                done = False
-                reward = -1.0
+                reward = 1.0+2.0
 
             else:
                 done = False
-                reward = 0
+                reward = 0+1.0
 
+        
         print("Reward :",reward)
         return done ,reward
 
 
-    def step(self ,action):
+    def step(self ,prev_state ,action):
 
-        self.takeAction(action)
+        action_angle = self.takeAction(action)
 
         new_state = self.getNewState()
 
@@ -297,7 +316,7 @@ class Env():
         print("robot_x :",self.robot_x)
         print("robot_y :",self.robot_y)
 
-        done ,reward = self.setReward(new_state ,self.robot_x ,self.prev_robot_x)
+        done ,reward = self.setReward(action_angle ,prev_state ,new_state ,self.robot_x ,self.prev_robot_x)
 
         return new_state ,float(reward) ,done
 
