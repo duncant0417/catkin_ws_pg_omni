@@ -152,7 +152,7 @@ class POLICY:
 
 N_STATE = 24
 N_ACTION = 5 
-
+in_train = False
 
 if __name__ == '__main__':
     '''Init ROS node'''
@@ -165,7 +165,7 @@ if __name__ == '__main__':
 
 
     agent = POLICY(N_STATE ,N_ACTION)
-    agent.load('ten.h5')
+    agent.load('hun.h5')
     
     episode =0
 
@@ -202,7 +202,10 @@ if __name__ == '__main__':
                 episode += 1
                 state = env.reset()
                 if episode < 50000:
-                    agent.train()
+                    if in_train == True:
+                        print("Trainning...")
+                        agent.train()
+
                     print('Episode: %d - Score: %f.' % (episode, score))
                     
                     if episode > 1 and episode % 10 == 0:
