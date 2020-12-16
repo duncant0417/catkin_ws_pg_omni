@@ -2,7 +2,7 @@
 
 
 '''
-Original Author :
+Reference from :
 https://github.com/keon/policy-gradient/blob/master/pg.py
 
 '''
@@ -153,6 +153,7 @@ class POLICY:
 N_STATE = 24
 N_ACTION = 5 
 in_train = False
+
 
 if __name__ == '__main__':
     '''Init ROS node'''
