@@ -37,9 +37,7 @@ catkin_package(
 # Install
 ################################################################################
 catkin_install_python(PROGRAMS
-  nodes/pg_main
-  src/env.py
-  src/InitGoal.py
+  nodes/pg_main.py
   DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION}
 )
 

@@ -18,7 +18,6 @@ from std_srvs.srv import Empty
 from tf.transformations import euler_from_quaternion, quaternion_from_euler
 from gazebo_msgs.msg import ModelStates
 
-from respawnGoal import Respawn
 
 class Env():
     def __init__(self):

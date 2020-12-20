@@ -57,15 +57,7 @@ if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/omni_pg" TYPE PROGRAM FILES "/home/user/catkin_ws_pg_omni/build/omni_pg/catkin_generated/installspace/pg_main")
-endif()
-
-if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/omni_pg" TYPE PROGRAM FILES "/home/user/catkin_ws_pg_omni/build/omni_pg/catkin_generated/installspace/env.py")
-endif()
-
-if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/omni_pg" TYPE PROGRAM FILES "/home/user/catkin_ws_pg_omni/build/omni_pg/catkin_generated/installspace/InitGoal.py")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/omni_pg" TYPE PROGRAM FILES "/home/user/catkin_ws_pg_omni/build/omni_pg/catkin_generated/installspace/pg_main.py")
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)

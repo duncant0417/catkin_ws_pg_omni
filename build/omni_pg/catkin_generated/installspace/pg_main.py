@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#!/usr/bin/env python2
 
 
 '''
@@ -19,6 +19,7 @@ sys.path.append(os.path.dirname(os.path.abspath(os.path.dirname(__file__))))
 from collections import deque
 from std_msgs.msg import Float32MultiArray
 from src.env import Env
+from src.InitGoal import Respawn
 #from keras.models import Sequential, load_model
 #from keras.optimizers import RMSprop
 #from keras.layers.core import Dense, Dropout, Activation

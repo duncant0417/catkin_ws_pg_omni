@@ -1,7 +1,0 @@
-set(cmd_vel_keyboard_SETUP_PY_SETUP_MODULE "distutils.core")
-set(cmd_vel_keyboard_SETUP_PY_VERSION "1.2.0")
-set(cmd_vel_keyboard_SETUP_PY_SCRIPTS "")
-set(cmd_vel_keyboard_SETUP_PY_PACKAGES "cmd_vel_keyboard")
-set(cmd_vel_keyboard_SETUP_PY_PACKAGE_DIRS "src/cmd_vel_keyboard")
-set(cmd_vel_keyboard_SETUP_PY_MODULES "")
-set(cmd_vel_keyboard_SETUP_PY_MODULE_DIRS "")
