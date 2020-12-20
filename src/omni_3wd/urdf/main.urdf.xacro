@@ -23,7 +23,23 @@
 
 
 	<!-- Define Base -->
-	<link name="origin_link"/>
+	<!--link name="base_footprint"-->
+	<!--link name="origin_link"/-->
+
+	<!-- root link, on the ground just below the model origin -->
+	
+	<link name="base_footprint">
+	<visual>
+		<origin xyz="0 0 0" rpy="0 0 0" />
+		<geometry>
+			<box size="0.001 0.001 0.001" />
+		</geometry>
+		</visual>
+	</link>
+	
+
+
+
 	<link name="base_link">
 
 	<inertial>
@@ -53,7 +69,7 @@
 
 	</link>
 	<joint name="base_joint" type="fixed">
-		<parent link="origin_link" />
+		<parent link="base_footprint" />
 		<child link="base_link" />
 		<origin xyz="0 0 0.01905"/>
 	</joint>
@@ -208,7 +224,7 @@
   	</gazebo>
 
 	<gazebo reference="rim_left_link">
-    		<material>Gazebo/Gray</material>
+    		<material>Gazebo/Blue</material>
   	</gazebo>
 
 	<gazebo reference="rim_back_link">
@@ -216,7 +232,7 @@
   	</gazebo>
 
 	<gazebo reference="rim_right_link">
-    		<material>Gazebo/Gray</material>
+    		<material>Gazebo/Green</material>
   	</gazebo>
 	<gazebo reference="standoff_2in_1_link">
     		<material>Gazebo/Black</material>
@@ -236,26 +252,84 @@
 
 
 	<!-- Add controller system plugin -->
-	<!--gazebo>
+	<!--
+	<gazebo>
 		<plugin name="gazebo_ros_control" filename="libgazebo_ros_control.so">
 		<robotNamespace>/open_base</robotNamespace>
 		</plugin>
-	</gazebo-->
-
+	</gazebo>
+	-->
+	
 
 	<!-- Add controller system plugin -->
+	
 	<gazebo>
 		<plugin name="object_controller" filename="libgazebo_ros_planar_move.so">
 		<commandTopic>cmd_vel</commandTopic>
-		<odometryTopic>odom</odometryTopic>
-		<odometryFrame>odom</odometryFrame>
-		<odometryRate>20.0</odometryRate>
-		<robotBaseFrame>base_link</robotBaseFrame>
+		<!--odometryTopic>odom</odometryTopic-->
+		<!--odometryFrame>odom</odometryFrame-->
+		<!--odometryRate>20.0</odometryRate-->
+		<robotBaseFrame>base_footprint</robotBaseFrame>
 		</plugin>
 	</gazebo>
+	
+	<!-- Workaround :
+		Use the object_controller only can not get the odom data which will stop working ,
+		So I add the differential_drive_controller for getting the odom data. -->
+	<gazebo>
+	<plugin name="differential_drive_controller" filename="libgazebo_ros_diff_drive.so">
 
+		<!-- Plugin update rate in Hz -->
+		<updateRate>20</updateRate>
 
+		<!-- Name of left joint, defaults to `left_joint` -->
+		<leftJoint>rim_right_joint</leftJoint>
 
+		<!-- Name of right joint, defaults to `right_joint` -->
+		<rightJoint>rim_back_joint</rightJoint>
+
+		<!-- The distance from the center of one wheel to the other, in meters, defaults to 0.34 m -->
+		<!--wheelSeparation>0.2078461</wheelSeparation-->
+
+		<!-- Diameter of the wheels, in meters, defaults to 0.15 m -->
+		<!--wheelDiameter>0.114</wheelDiameter-->
+
+		<!-- Wheel acceleration, in rad/s^2, defaults to 0.0 rad/s^2 -->
+		<!--wheelAcceleration>1.0</wheelAcceleration-->
+
+		<!-- Maximum torque which the wheels can produce, in Nm, defaults to 5 Nm -->
+		<!--wheelTorque>20</wheelTorque-->
+
+		<!-- Topic to receive geometry_msgs/Twist message commands, defaults to `cmd_vel` -->
+		<!--commandTopic>cmd_vel</commandTopic-->
+
+		<!-- Topic to publish nav_msgs/Odometry messages, defaults to `odom` -->
+		<odometryTopic>odom</odometryTopic>
+
+		<!-- Odometry frame, defaults to `odom` -->
+		<odometryFrame>odom</odometryFrame>
+
+		<!-- Robot frame to calculate odometry from, defaults to `base_footprint` -->
+		<robotBaseFrame>base_footprint</robotBaseFrame>
+
+		<!-- Odometry source, 0 for ENCODER, 1 for WORLD, defaults to WORLD -->
+		<odometrySource>1</odometrySource>
+
+		<!-- Set to true to publish transforms for the wheel links, defaults to false -->
+		<publishWheelTF>true</publishWheelTF>
+
+		<!-- Set to true to publish transforms for the odometry, defaults to true -->
+		<publishOdom>true</publishOdom>
+
+		<!-- Set to true to publish sensor_msgs/JointState on /joint_states for the wheel joints, defaults to false -->
+		<publishWheelJointState>true</publishWheelJointState>
+
+		<!-- Set to true to swap right and left wheels, defaults to true -->
+		<legacyMode>false</legacyMode>
+	</plugin>
+	</gazebo>
+
+	
 
 
 	<!-- Add plugin for calculate position and Vx Vy Vz -->
@@ -273,8 +347,11 @@
 	</gazebo-->
 
 
+
+
 	<!-- Add IMU Controller Plugin -->
 
+	<!--
 	<gazebo reference="imu_link">
 	    <sensor type="imu" name="imu">
 	      <always_on>true</always_on>
@@ -282,6 +359,9 @@
 	    </sensor>
 	    <material>Gazebo/FlatBlack</material>
 	</gazebo>
+
+	-->
+
 
 	<!-- Add IMU Controller Plugin , no gravity -->
 	<!--gazebo>
@@ -314,17 +394,22 @@
 	</gazebo-->
 
 	<!-- Add IMU Controller Plugin , has gravity -->
+
 	<gazebo reference="imu_link">
 		<gravity>true</gravity>
 		<sensor name="imu_sensor" type="imu">
 		<always_on>true</always_on>
-		<update_rate>100</update_rate>
+		<!--update_rate>100</update_rate-->
 		<visualize>true</visualize>
 		<topic>__default_topic__</topic>
 		<plugin filename="libgazebo_ros_imu_sensor.so" name="imu_plugin">
 			<topicName>imu</topicName>
 			<bodyName>imu_link</bodyName>
-			<updateRateHZ>10.0</updateRateHZ>
+			<!--updateRateHZ>10.0</updateRateHZ-->
+			<!--set the update rate will broken the imu topic after reset gazebo env
+			,set it to zero will make it normal.
+			https://github.com/ros-simulation/gazebo_ros_pkgs/issues/169-->
+			<updateRateHZ>0.0</updateRateHZ>
 			<gaussianNoise>0.0</gaussianNoise>
 			<xyzOffset>0 0 0</xyzOffset>
 			<rpyOffset>0 0 0</rpyOffset>
@@ -333,7 +418,9 @@
 		</plugin>
 		<pose>0 0 0 0 0 0</pose>
 		</sensor>
-	</gazebo>
+	</gazebo>	
+	
+
 
 
 	<!-- Add Lidar Controller Plugin -->

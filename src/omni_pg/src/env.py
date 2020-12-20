@@ -71,7 +71,7 @@ class Env():
 
 
         '''wait for topic data get ready ,or you will get nothing in the very beginning time'''
-        self.wait_topic_ready()
+        #self.wait_topic_ready()
 
 
     def getModelStatesCallback(self ,modelStatusMsg):
@@ -100,6 +100,7 @@ class Env():
     ### This is the topic odom's callback.Please call env.position to get position 
     ### ,do not simply call getOdometry
     '''
+    
     def getOdometryCallback(self, odom_msg):
         self.odom = odom_msg
         self.robotPosition = odom_msg.pose.pose.position
@@ -149,13 +150,14 @@ class Env():
     ### This is the topic imu's callback.
     ### ,do not simply call getOdometry
     '''
+    
     def getImuCallback(self, imu_msg):
         self.imu_data = imu_msg
         self.imu_linearaccel = self.imu_data.linear_acceleration
         self.linear_accel_x = self.imu_data.linear_acceleration
         self.linear_accel_y = self.imu_data.linear_acceleration
         self.linear_accel_z = self.imu_data.linear_acceleration
-
+    
 
 
     '''
@@ -443,10 +445,8 @@ class Env():
         except :
             print("gazebo/reset_simulation service call failed")
 
+        
         #self.wait_topic_ready()
-        #self.pubAction_x_w(0 ,1)
-        #time.sleep(0.1)
-        #self.pubAction_x_w(0 ,0)
         self.pubAction_x_y(0 ,0)
         time.sleep(2.0)
 
