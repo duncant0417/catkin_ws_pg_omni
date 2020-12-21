@@ -2,19 +2,15 @@
 Hi ,this the repo is for the final project of Embedded Microprocessor(嵌入式微處理機).
 
 The model of Omni robot is base on these two projects :
-
 https://github.com/GuiRitter/OpenBase/tree/master/ROS/open_base
-
 https://github.com/YugAjmera/omni3ros_pkg
 
 
 Some components from turtlebot3 ,including the lidar module and the world enviroment of gazebo. You can find some resources of the turtlebot from the below link:
-
 https://emanual.robotis.com/docs/en/platform/turtlebot3/overview/
 
 
 And the model of Policy Gradient is base on :
-
 https://github.com/keon/policy-gradient/blob/master/pg.py
 
 
@@ -58,10 +54,10 @@ https://repo.anaconda.com/archive/
 
 3. Install ROS pakages and tensorflow ,keras:
 
-    pip install rosinstall msgpack empy defusedxml netifaces
-    pip install tensorflow==1.14
-    pip install keras==2.1.5
-    pip install pydot
+        pip install rosinstall msgpack empy defusedxml netifaces
+        pip install tensorflow==1.14
+        pip install keras==2.1.5
+        pip install pydot
 
 4. Close all command line console.
 
@@ -71,7 +67,7 @@ PART 3. Clone the project
 1. Move to your working space or any directory you like.
 2. clone the repo:
 
-    git clone https://github.com/windlunar/catkin_ws_pg_omni
+        git clone https://github.com/windlunar/catkin_ws_pg_omni
 
 
 
@@ -83,14 +79,14 @@ PART 4.Running
 
 2. Move to the catkin_ws_pg_omni folder , and type the following command.
 
-    source ./devel/setup.bash
-    roslaunch omni_3wd velocity_controller.launch
+        source ./devel/setup.bash
+        roslaunch omni_3wd velocity_controller.launch
 
 3. Open another terminal ,and type the same command to activate conda enviroment:
 
-    conda activate ros-env
-    source /opt/ros/melodic/setup.bash
+        conda activate ros-env
+        source /opt/ros/melodic/setup.bash
 
 4. For the new terminal ,move the path to the catkin_ws_pg_omni/src/omni_pg/nodes , and type the following command to start tranning.
 
-    python pg_main.py
+        python pg_main.py
