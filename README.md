@@ -1,6 +1,6 @@
 # catkin_ws_pg_omni
-Hi All,<br>
-this repo is for the final project of Embedded Microprocessor(嵌入式微處理機).<br>
+Hi All,<br><br>
+## This repo is for the final project of Embedded Microprocessor(嵌入式微處理機).<br>
 
 The model of Omni robot is base on these two projects :<br>
 >>https://github.com/GuiRitter/OpenBase/tree/master/ROS/open_base<br>
@@ -27,9 +27,9 @@ ROS version : Melodic
 <br>
 <br>
 1.First ,you need to install Ubuntu 18.04 and ROS melodic on your machine.
-We will skip the installation of Ubuntu. You can download the image from the Ubnutu official website ,and just install it.<br>
-You can get the information about ros installation form the following link :
+You can get the information about ros installation form :
 <br>
+
 >>http://wiki.ros.org/melodic/Installation/Ubuntu
 <br><br>
 2.After you setup your ros ,please install these following pakage if you haven't install yet :
