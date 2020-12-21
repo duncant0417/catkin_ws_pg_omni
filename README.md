@@ -3,15 +3,18 @@ Hi All,<br>
 this repo is for the final project of Embedded Microprocessor(嵌入式微處理機).<br>
 
 The model of Omni robot is base on these two projects :
+
         https://github.com/GuiRitter/OpenBase/tree/master/ROS/open_base
         https://github.com/YugAjmera/omni3ros_pkg
 
 <br>
 Some components from turtlebot3 ,including the lidar module and the world enviroment of gazebo. You can find some resources of the turtlebot from the below link:
+
         https://emanual.robotis.com/docs/en/platform/turtlebot3/overview/
 
 <br>
 And the model of Policy Gradient is base on :
+
         https://github.com/keon/policy-gradient/blob/master/pg.py
 
 
