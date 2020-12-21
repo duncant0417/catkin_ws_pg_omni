@@ -26,11 +26,12 @@ Operation system : Ubuntu 18.04
 ROS version : Melodic
 <br>
 <br>
-1.First ,you need to install Ubuntu 18.04 and ROS melodic on your machine.
-You can get the information about ros installation form :
+1.First ,you need to install Ubuntu 18.04 and ROS melodic on your machine.<br>
+You can get the information about ros installation from :
 <br>
 
 >>http://wiki.ros.org/melodic/Installation/Ubuntu
+
 <br><br>
 2.After you setup your ros ,please install these following pakage if you haven't install yet :
 
@@ -59,7 +60,7 @@ You need to setup the enviroment for running ML.
 
         conda create -n ros-env python=2.7
 <br>
-3. Install ROS pakages and tensorflow ,keras:
+3. Install ROS related pakages and tensorflow ,keras:
 
         pip install rosinstall msgpack empy defusedxml netifaces
         pip install tensorflow==1.14
@@ -97,6 +98,6 @@ PART 4.Running
         conda activate ros-env
         source /opt/ros/melodic/setup.bash
 <br>
-4. For the new terminal ,move the path to the catkin_ws_pg_omni/src/omni_pg/nodes , and type the following command to start tranning.
+4. For the new terminal ,move to the catkin_ws_pg_omni/src/omni_pg/nodes , and type the following command to start tranning.
 
         python pg_main.py
