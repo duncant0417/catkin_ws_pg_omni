@@ -117,7 +117,7 @@ Install gmapping:
 
         sudo apt-get install ros-melodic-slam-gmapping
 <br>
-Close all the terminal first.<br>
+Close all the terminal.<br>
 <br>
 1.Open a new terminal:
 
@@ -129,7 +129,7 @@ Move to the catkin_ws_pg_omni folder
         roslaunch omni_3wd velocity_controller.launch
 <br>
 You can see the gazebo is open.
-<br>
+<br><br>
 2.Open the second terminal:
 
         source /opt/ros/melodic/setup.bash
@@ -139,8 +139,8 @@ Move to the catkin_ws_pg_omni folder
         source ./devel/setup.bash
         roslaunch turtlebot3_slam turtlebot3_slam.launch
 <br>
-You can see the rviz is open.
-<br>
+Now rviz is open.
+<br><br>
 3.Open another terminal:
 
         source /opt/ros/melodic/setup.bash
