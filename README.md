@@ -7,7 +7,7 @@ The model of Omni robot is base on these two projects :<br>
 >>https://github.com/YugAjmera/omni3ros_pkg
 
 <br>
-Some components from turtlebot3 ,including the lidar module and the world enviroment of gazebo. You can find some resources of the turtlebot from the below link:<br>
+Some components comes from turtlebot3 ,including the lidar module and the world enviroment of gazebo. You can find some resources of the turtlebot from the below link:<br>
 
 >>https://emanual.robotis.com/docs/en/platform/turtlebot3/overview/
 
