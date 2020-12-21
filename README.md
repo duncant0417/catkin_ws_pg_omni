@@ -97,6 +97,9 @@ PART 4.Running
         source ./devel/setup.bash
         roslaunch omni_3wd velocity_controller.launch
 <br>
+
+![image](https://github.com/windlunar/catkin_ws_pg_omni/env.png)
+
 3. Open another terminal ,and type the same command to activate conda enviroment:
 
         conda activate ros-env
