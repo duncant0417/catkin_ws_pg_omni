@@ -1,13 +1,14 @@
 # catkin_ws_pg_omni
 Hi All,<br><br>
 ## This repo is for the final project of Embedded Microprocessor(嵌入式微處理機).<br>
+Use policy gradient to train a omni robot in order to reach the destination without crashing to obstacle.
 
 The model of Omni robot is base on these two projects :<br>
 >>https://github.com/GuiRitter/OpenBase<br>
 >>https://github.com/YugAjmera/omni3ros_pkg
 
 <br>
-Some components comes from turtlebot3 ,including the lidar module and the world enviroment of gazebo. You can find some resources of the turtlebot from the below link:<br>
+Some components comes from turtlebot3 ,including the lidar module ,some world enviroment and slam pakage. You can find some resources of the turtlebot from the below link:<br>
 
 >>https://emanual.robotis.com/docs/en/platform/turtlebot3/overview/
 
