@@ -74,17 +74,17 @@ PART 3. Clone the project
 PART 4.Running
 =
 
-1.open a terminal ,and type the command step by step :
+1.open a terminal ,and type the command step by step :\<br>
         conda activate ros-env
         source /opt/ros/melodic/setup.bash
 
-2. Move to the catkin_ws_pg_omni folder , and type the following command.
+2. Move to the catkin_ws_pg_omni folder , and type the following command.\<br>
         source ./devel/setup.bash
         roslaunch omni_3wd velocity_controller.launch
 
-3. Open another terminal ,and type the same command to activate conda enviroment:
+3. Open another terminal ,and type the same command to activate conda enviroment:\<br>
         conda activate ros-env
         source /opt/ros/melodic/setup.bash
 
-4. For the new terminal ,move the path to the catkin_ws_pg_omni/src/omni_pg/nodes , and type the following command to start tranning.
+4. For the new terminal ,move the path to the catkin_ws_pg_omni/src/omni_pg/nodes , and type the following command to start tranning.\<br>
         python pg_main.py
