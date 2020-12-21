@@ -60,14 +60,18 @@ You need to setup the enviroment for running ML.
 
         conda create -n ros-env python=2.7
 <br>
-3. Install ROS related pakages and tensorflow ,keras:
+4. Activate your conda enviroment:
+
+        conda activate ros-env
+<br>
+4. Install ROS related pakages and tensorflow ,keras inside your conda enviroment:
 
         pip install rosinstall msgpack empy defusedxml netifaces
         pip install tensorflow==1.14
         pip install keras==2.1.5
         pip install pydot
 <br>
-4. Close all command line console.
+5. Close all command line console.
 
 
 PART 3. Clone the project
