@@ -3,7 +3,7 @@ Hi All,<br><br>
 ## This repo is for the final project of Embedded Microprocessor(嵌入式微處理機).<br>
 
 The model of Omni robot is base on these two projects :<br>
->>https://github.com/GuiRitter/OpenBase/tree/master/ROS/open_base<br>
+>>https://github.com/GuiRitter/OpenBase<br>
 >>https://github.com/YugAjmera/omni3ros_pkg
 
 <br>
