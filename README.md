@@ -108,3 +108,51 @@ PART 4.Running
 4. For the new terminal ,move to the catkin_ws_pg_omni/src/omni_pg/nodes , and type the following command to start tranning.
 
         python pg_main.py
+
+
+PART 4.SLAM
+=
+
+Install gmapping:
+
+        sudo apt-get install ros-melodic-slam-gmapping
+<br>
+Close all the terminal first.<br>
+<br>
+1.Open a new terminal:
+
+        source /opt/ros/melodic/setup.bash
+<br>
+Move to the catkin_ws_pg_omni folder
+
+        source ./devel/setup.bash
+        roslaunch omni_3wd velocity_controller.launch
+<br>
+You can see the gazebo is open.
+<br>
+2.Open the second terminal:
+
+        source /opt/ros/melodic/setup.bash
+<br>
+Move to the catkin_ws_pg_omni folder
+
+        source ./devel/setup.bash
+        roslaunch turtlebot3_slam turtlebot3_slam.launch
+<br>
+You can see the rviz is open.
+<br>
+3.Open another terminal:
+
+        source /opt/ros/melodic/setup.bash
+<br>
+Move to the catkin_ws_pg_omni folder
+
+        source ./devel/setup.bash
+<br>
+move to /catkin_ws_pg_omni/src/cmd_vel_keyboard/nodes folder
+
+        python cmd_vel_keyboard.py
+<br>
+Now you can use your keyboard to control the omniweel ,and the rviz will show the map which is created by gmapping.
+<br><br>
+Cause I haven't map all the frame to map ,so you may not see some componets of omnibot.

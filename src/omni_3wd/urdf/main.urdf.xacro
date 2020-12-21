@@ -23,11 +23,10 @@
 
 
 	<!-- Define Base -->
-	<!--link name="base_footprint"-->
-	<!--link name="origin_link"/-->
+	<link name="base_footprint"/>
 
 	<!-- root link, on the ground just below the model origin -->
-	
+	<!--
 	<link name="base_footprint">
 	<visual>
 		<origin xyz="0 0 0" rpy="0 0 0" />
@@ -36,6 +35,7 @@
 		</geometry>
 		</visual>
 	</link>
+	-->
 	
 
 
@@ -252,7 +252,7 @@
 
 
 	<!-- Add controller system plugin -->
-	<!--
+	<!--	
 	<gazebo>
 		<plugin name="gazebo_ros_control" filename="libgazebo_ros_control.so">
 		<robotNamespace>/open_base</robotNamespace>
@@ -260,22 +260,23 @@
 	</gazebo>
 	-->
 	
+	
 
 	<!-- Add controller system plugin -->
-	
 	<gazebo>
 		<plugin name="object_controller" filename="libgazebo_ros_planar_move.so">
 		<commandTopic>cmd_vel</commandTopic>
-		<!--odometryTopic>odom</odometryTopic-->
-		<!--odometryFrame>odom</odometryFrame-->
-		<!--odometryRate>20.0</odometryRate-->
+		<odometryTopic>odom</odometryTopic>
+		<odometryFrame>odom</odometryFrame>
+		<odometryRate>20.0</odometryRate>
 		<robotBaseFrame>base_footprint</robotBaseFrame>
 		</plugin>
 	</gazebo>
-	
+
 	<!-- Workaround :
 		Use the object_controller only can not get the odom data which will stop working ,
 		So I add the differential_drive_controller for getting the odom data. -->
+
 	<gazebo>
 	<plugin name="differential_drive_controller" filename="libgazebo_ros_diff_drive.so">
 
@@ -288,20 +289,20 @@
 		<!-- Name of right joint, defaults to `right_joint` -->
 		<rightJoint>rim_back_joint</rightJoint>
 
-		<!-- The distance from the center of one wheel to the other, in meters, defaults to 0.34 m -->
-		<!--wheelSeparation>0.2078461</wheelSeparation-->
+			<!-- The distance from the center of one wheel to the other, in meters, defaults to 0.34 m -->
+			<!--wheelSeparation>0.2078461</wheelSeparation-->
 
-		<!-- Diameter of the wheels, in meters, defaults to 0.15 m -->
-		<!--wheelDiameter>0.114</wheelDiameter-->
+			<!-- Diameter of the wheels, in meters, defaults to 0.15 m -->
+			<!--wheelDiameter>0.114</wheelDiameter-->
 
-		<!-- Wheel acceleration, in rad/s^2, defaults to 0.0 rad/s^2 -->
-		<!--wheelAcceleration>1.0</wheelAcceleration-->
+			<!-- Wheel acceleration, in rad/s^2, defaults to 0.0 rad/s^2 -->
+			<!--wheelAcceleration>1.0</wheelAcceleration-->
 
-		<!-- Maximum torque which the wheels can produce, in Nm, defaults to 5 Nm -->
-		<!--wheelTorque>20</wheelTorque-->
+			<!-- Maximum torque which the wheels can produce, in Nm, defaults to 5 Nm -->
+			<!--wheelTorque>20</wheelTorque-->
 
-		<!-- Topic to receive geometry_msgs/Twist message commands, defaults to `cmd_vel` -->
-		<!--commandTopic>cmd_vel</commandTopic-->
+			<!-- Topic to receive geometry_msgs/Twist message commands, defaults to `cmd_vel` -->
+			<!--commandTopic>cmd_vel</commandTopic-->
 
 		<!-- Topic to publish nav_msgs/Odometry messages, defaults to `odom` -->
 		<odometryTopic>odom</odometryTopic>
@@ -315,11 +316,13 @@
 		<!-- Odometry source, 0 for ENCODER, 1 for WORLD, defaults to WORLD -->
 		<odometrySource>1</odometrySource>
 
-		<!-- Set to true to publish transforms for the wheel links, defaults to false -->
-		<publishWheelTF>true</publishWheelTF>
+			<!-- Set to true to publish transforms for the wheel links, defaults to false -->
+			<!--publishWheelTF>true</publishWheelTF-->
 
 		<!-- Set to true to publish transforms for the odometry, defaults to true -->
-		<publishOdom>true</publishOdom>
+		<publishOdom>false</publishOdom>
+		<publishOdomTF>true</publishOdomTF>
+		
 
 		<!-- Set to true to publish sensor_msgs/JointState on /joint_states for the wheel joints, defaults to false -->
 		<publishWheelJointState>true</publishWheelJointState>
@@ -329,7 +332,6 @@
 	</plugin>
 	</gazebo>
 
-	
 
 
 	<!-- Add plugin for calculate position and Vx Vy Vz -->
@@ -429,7 +431,7 @@
 	  <sensor type="ray" name="lds_lfcd_sensor">
 	      <pose>0 0 0 0 0 0</pose>
 	      <visualize>$(arg laser_visual)</visualize>
-	      <update_rate>5</update_rate>
+	      <update_rate>10</update_rate>
 	      <ray>
 		<scan>
 		  <horizontal>

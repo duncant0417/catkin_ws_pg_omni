@@ -19,10 +19,11 @@ sys.path.append(os.path.dirname(os.path.abspath(os.path.dirname(__file__))))
 from collections import deque
 from std_msgs.msg import Float32MultiArray
 from src.env import Env
-from src.InitGoal import Respawn
+
 #from keras.models import Sequential, load_model
 #from keras.optimizers import RMSprop
 #from keras.layers.core import Dense, Dropout, Activation
+
 
 from keras.models import Sequential
 from keras.layers import Dense, Reshape, Flatten
@@ -127,13 +128,13 @@ class POLICY:
         X = np.squeeze(np.vstack([self.states]) ,axis = 1)
         Y = self.probs + self.learning_rate * np.vstack([gradients])
 
-        '''
+        
         # state input dim needs to be (n ,24) : ex (1 ,24) (2 ,24)
         # prob input dim needs to be (n ,8) : ex (1 ,8) (2 ,8)
 
         # self.state.shape = (1, 1, 24)
         # X.shape = (1, 24)
-        '''
+        
         loss = self.model.train_on_batch(X, Y)
         print("                                         loss :",loss)
         self.states, self.probs, self.gradients, self.rewards = [], [], [], []

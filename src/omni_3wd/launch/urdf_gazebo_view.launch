@@ -5,7 +5,7 @@
 	<include file="$(find gazebo_ros)/launch/empty_world.launch">
 		<arg name="world_name" value="$(find omni_3wd)/worlds/turtlebot3_stage_2_2m_1m.world"/>
 		<arg name="paused" value="false"/>
-		<arg name="use_sim_time" value="false"/>
+		<arg name="use_sim_time" value="true"/>
 		<arg name="gui" value="true"/>
 		<arg name="headless" value="false"/>
 		<arg name="debug" value="false"/>
@@ -24,4 +24,7 @@
 	
 	<node name="urdf_spawner" pkg="gazebo_ros" type="spawn_model" output="screen" args="-urdf -x $(arg x) -y $(arg y) -z $(arg z) -model open_base -param robot_description"/>
 	
+  	<node pkg="tf" type="static_transform_publisher" name="base_link_to_base_scan" args="0 0 0.028 0 0 0 /base_footprint /base_scan 20"/>
+  	<node pkg="tf" type="static_transform_publisher" name="base_footprint_to_base_link" args="0 0 0 0 0 0 /base_footprint /base_link 20"/>
+
 </launch>

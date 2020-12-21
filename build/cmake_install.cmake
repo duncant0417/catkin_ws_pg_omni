@@ -134,6 +134,7 @@ if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   include("/home/user/catkin_ws_pg_omni/build/teleop_keyboard_omni3/cmake_install.cmake")
   include("/home/user/catkin_ws_pg_omni/build/cmd_vel_keyboard/cmake_install.cmake")
   include("/home/user/catkin_ws_pg_omni/build/omni_pg/cmake_install.cmake")
+  include("/home/user/catkin_ws_pg_omni/build/turtlebot3_slam/cmake_install.cmake")
   include("/home/user/catkin_ws_pg_omni/build/omni_3wd/cmake_install.cmake")
 
 endif()
