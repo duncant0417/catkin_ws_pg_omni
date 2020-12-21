@@ -98,7 +98,7 @@ PART 4.Running
         roslaunch omni_3wd velocity_controller.launch
 <br>
 
-![image](https://github.com/windlunar/catkin_ws_pg_omni/env.png)
+![image](https://github.com/windlunar/catkin_ws_pg_omni/blob/main/env.png)
 
 3. Open another terminal ,and type the same command to activate conda enviroment:
 
