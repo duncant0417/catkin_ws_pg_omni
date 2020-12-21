@@ -2,17 +2,16 @@
 Hi All,<br>
 this repo is for the final project of Embedded Microprocessor(嵌入式微處理機).<br>
 
-The model of Omni robot is base on these two projects :<br>
+The model of Omni robot is base on these two projects :
         https://github.com/GuiRitter/OpenBase/tree/master/ROS/open_base
-<br>
         https://github.com/YugAjmera/omni3ros_pkg
 
 <br>
-Some components from turtlebot3 ,including the lidar module and the world enviroment of gazebo. You can find some resources of the turtlebot from the below link:<br>
+Some components from turtlebot3 ,including the lidar module and the world enviroment of gazebo. You can find some resources of the turtlebot from the below link:
         https://emanual.robotis.com/docs/en/platform/turtlebot3/overview/
 
 <br>
-And the model of Policy Gradient is base on :<br>
+And the model of Policy Gradient is base on :
         https://github.com/keon/policy-gradient/blob/master/pg.py
 
 
@@ -27,7 +26,7 @@ ROS version : Melodic
 <br>
 1.First ,you need to install Ubuntu 18.04 and ROS melodic on your machine.
 We will skip the installation of Ubuntu. You can download the image from the Ubnutu official website ,and just install it.<br>
-You can get the information about ros installation form the following link :<br>
+You can get the information about ros installation form the following link :
 
         http://wiki.ros.org/melodic/Installation/Ubuntu
 <br>
