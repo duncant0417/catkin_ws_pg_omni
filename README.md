@@ -110,7 +110,7 @@ PART 4.Running
         python pg_main.py
 
 
-PART 4.SLAM
+PART 5.SLAM
 =
 
 Install gmapping:
