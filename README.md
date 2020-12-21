@@ -54,6 +54,7 @@ https://repo.anaconda.com/archive/
 2.Create a conda enviroment by :
 
         conda create -n ros-env python=2.7
+
 3. Install ROS pakages and tensorflow ,keras:
 
         pip install rosinstall msgpack empy defusedxml netifaces
