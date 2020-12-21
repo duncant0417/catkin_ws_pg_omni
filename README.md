@@ -33,15 +33,15 @@ http://wiki.ros.org/melodic/Installation/Ubuntu
 
 After you setup your ros ,please install these following pakage if you haven't install yet :
 
-sudo apt-get install ros-melodic-ros-control
-sudo apt-get install ros-melodic-effort-controllers
-sudo apt-get install ros-melodic-joint-state-controller
-sudo apt-get install ros-melodic-position-controllers
-sudo apt-get install ros-melodic-ros-control
-sudo apt-get install ros-melodic-velocity-controllers 
-sudo apt-get install ros-melodic-ros-controllers 
-sudo apt-get install ros-melodic-gazebo-ros 
-sudo apt-get install ros-melodic-gazebo-ros-control
+    sudo apt-get install ros-melodic-ros-control
+    sudo apt-get install ros-melodic-effort-controllers
+    sudo apt-get install ros-melodic-joint-state-controller
+    sudo apt-get install ros-melodic-position-controllers
+    sudo apt-get install ros-melodic-ros-control
+    sudo apt-get install ros-melodic-velocity-controllers 
+    sudo apt-get install ros-melodic-ros-controllers 
+    sudo apt-get install ros-melodic-gazebo-ros 
+    sudo apt-get install ros-melodic-gazebo-ros-control
 
 
 
