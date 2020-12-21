@@ -30,6 +30,7 @@ you can get the information about ros installation form the following link :
 http://wiki.ros.org/melodic/Installation/Ubuntu
 
 2.After you setup your ros ,please install these following pakage if you haven't install yet :
+
         sudo apt-get install ros-melodic-ros-control
         sudo apt-get install ros-melodic-effort-controllers
         sudo apt-get install ros-melodic-joint-state-controller
@@ -54,6 +55,7 @@ https://repo.anaconda.com/archive/
 conda create -n ros-env python=2.7
 
 3. Install ROS pakages and tensorflow ,keras:
+
         pip install rosinstall msgpack empy defusedxml netifaces
         pip install tensorflow==1.14
         pip install keras==2.1.5
@@ -67,6 +69,7 @@ PART 3. Clone the project
 
 1. Move to your working space or any directory you like.
 2. clone the repo:
+
         git clone https://github.com/windlunar/catkin_ws_pg_omni
 
 
