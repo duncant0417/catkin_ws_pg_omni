@@ -72,7 +72,7 @@ You need to setup the enviroment for running ML.
         pip install keras==2.1.5
         pip install pydot
 <br>
-5. Close all command line console.
+5. Close all terminal.
 
 
 PART 3. Clone the project
@@ -213,6 +213,7 @@ Then, put your map(both "map.pgm" and "map.yaml") which was created by SLAM to t
 <br>/catkin_ws_pg_omni/src/turtlebot3_navigation/maps/
 <br>
 <br>
+Close all the terminal.<br><br>
 1.Open a new terminal:
 
         source /opt/ros/melodic/setup.bash
@@ -269,6 +270,7 @@ Install the navigation pakage:
         sudo apt-get install ros-melodic-navigation
 
 <br>
+Close all the terminal.<br><br>
 1.Open a new terminal:
 
         source /opt/ros/melodic/setup.bash
