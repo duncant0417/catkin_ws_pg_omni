@@ -181,7 +181,11 @@ Install map_saver to save the map
         sudo apt-get install ros-melodic-map-server
 
 Save your map:
+        sudo sh -c 'echo "deb http://packages.ros.org/ros/ubuntu $(lsb_release -sc) main" > /etc/apt/sources.list.d/ros-latest.list'
 
+        sudo apt-key adv --keyserver 'hkp://keyserver.ubuntu.com:80' --recv-key C1CF6E31E6BADE8868B172B4F42ED6FBAB17C654
+
+        sudo apt update
         rosrun map_server map_saver -f ./map
 
 Then you should see your map "map.pgm" and "map.yaml"  has been saved.
@@ -192,7 +196,11 @@ PART 6.AMCL
 =
 
 First, install amcl
+        sudo sh -c 'echo "deb http://packages.ros.org/ros/ubuntu $(lsb_release -sc) main" > /etc/apt/sources.list.d/ros-latest.list'
 
+        sudo apt-key adv --keyserver 'hkp://keyserver.ubuntu.com:80' --recv-key C1CF6E31E6BADE8868B172B4F42ED6FBAB17C654
+
+        sudo apt update
         sudo apt-get install ros-melodic-amcl
 <br>
 Then, put your map(both "map.pgm" and "map.yaml") which was created by SLAM to the folder :/catkin_ws_pg_omni/src/turtlebot3_navigation/maps/
