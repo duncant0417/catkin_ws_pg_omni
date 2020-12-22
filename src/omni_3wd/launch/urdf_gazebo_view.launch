@@ -3,7 +3,8 @@
 	
 	<!-- Launch empty world Gazebo -->
 	<include file="$(find gazebo_ros)/launch/empty_world.launch">
-		<arg name="world_name" value="$(find omni_3wd)/worlds/turtlebot3_stage_2_2m_1m.world"/>
+		<!--arg name="world_name" value="$(find omni_3wd)/worlds/turtlebot3_stage_2_2m_1m.world"/-->
+		<arg name="world_name" value="$(find omni_3wd)/worlds/turtlebot3_world.world"/>
 		<arg name="paused" value="false"/>
 		<arg name="use_sim_time" value="true"/>
 		<arg name="gui" value="true"/>

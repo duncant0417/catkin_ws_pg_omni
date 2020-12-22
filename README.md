@@ -252,3 +252,8 @@ Use your keyboard move the robot ,<br>
 
 ![image](https://github.com/windlunar/catkin_ws_pg_omni/blob/main/picture/amcl3.png)
 
+
+To navigation:
+
+        sudo apt-get install ros-melodic-navigation
+
