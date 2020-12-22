@@ -99,8 +99,6 @@ PART 4.Training
         roslaunch omni_3wd velocity_controller.launch
 <br>
 
-![image](https://github.com/windlunar/catkin_ws_pg_omni/blob/main/picture/env.png)
-
 3. Open another terminal ,and type the same command to activate conda enviroment:
 
         conda activate ros-env
@@ -110,7 +108,9 @@ PART 4.Training
 
         python pg_main.py
 
+![image](https://github.com/windlunar/catkin_ws_pg_omni/blob/main/picture/env.png)
 
+<br>
 PART 5.SLAM
 =
 
