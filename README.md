@@ -99,7 +99,7 @@ PART 4.Running
         roslaunch omni_3wd velocity_controller.launch
 <br>
 
-![image](https://github.com/windlunar/catkin_ws_pg_omni/blob/main/env.png)
+![image](https://github.com/windlunar/catkin_ws_pg_omni/blob/main/picture/env.png)
 
 3. Open another terminal ,and type the same command to activate conda enviroment:
 
@@ -169,5 +169,8 @@ move to /catkin_ws_pg_omni/src/cmd_vel_keyboard/nodes folder
         python cmd_vel_keyboard.py
 <br>
 Now you can use your keyboard to control the omniweel ,and the rviz will show the map which is created by gmapping.
+
+![image](https://github.com/windlunar/catkin_ws_pg_omni/blob/main/picture/slam.png)
+
 <br><br>
 Cause I haven't map all the frame to map ,so you may not see some componets of omnibot.
