@@ -224,9 +224,13 @@ Now rviz is open again.
 
 Press the "2D Pose Estimate" at the top of the rviz window ,And set the initial position of robot<br>
 
+![image](https://github.com/windlunar/catkin_ws_pg_omni/blob/main/picture/amcl1.png)
+![image](https://github.com/windlunar/catkin_ws_pg_omni/blob/main/picture/amcl2.png)
+
+
 You can now see some random particle distributed around the robot.<br>
 Use your keyboard move the robot ,
 <br>Then you should observe that the particle converge to the real position of robot.
 
-
+![image](https://github.com/windlunar/catkin_ws_pg_omni/blob/main/picture/amcl3.png)
 
