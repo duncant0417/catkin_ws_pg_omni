@@ -206,7 +206,8 @@ First, install amcl
         sudo apt update
         sudo apt-get install ros-melodic-amcl
 <br>
-Then, put your map(both "map.pgm" and "map.yaml") which was created by SLAM to the folder :/catkin_ws_pg_omni/src/turtlebot3_navigation/maps/
+Then, put your map(both "map.pgm" and "map.yaml") which was created by SLAM to the folder :
+<br>/catkin_ws_pg_omni/src/turtlebot3_navigation/maps/
 <br>
 <br>
 1.Open a new terminal:
