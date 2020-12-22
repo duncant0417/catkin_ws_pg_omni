@@ -174,20 +174,20 @@ Now you can use your keyboard to control the omniweel ,and the rviz will show th
 ![image](https://github.com/windlunar/catkin_ws_pg_omni/blob/main/picture/slam.png)
 
 <br><br>
-Cause I haven't map all the frame to map ,so you may not see some componets of omnibot.
+Cause I haven't map all the frame yet ,so you may not see some componets of omnibot.
 
 
 Install map_saver to save the map
-
-        sudo apt-get install ros-melodic-map-server
-
-Save your map:
 
         sudo sh -c 'echo "deb http://packages.ros.org/ros/ubuntu $(lsb_release -sc) main" > /etc/apt/sources.list.d/ros-latest.list'
 
         sudo apt-key adv --keyserver 'hkp://keyserver.ubuntu.com:80' --recv-key C1CF6E31E6BADE8868B172B4F42ED6FBAB17C654
 
         sudo apt update
+        sudo apt-get install ros-melodic-map-server
+
+Save your map:
+
         rosrun map_server map_saver -f ./map
 
 Then you should see your map "map.pgm" and "map.yaml"  has been saved.
