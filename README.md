@@ -85,7 +85,7 @@ PART 3. Clone the project
 
 
 
-PART 4.Running
+PART 4.Training
 =
 
 1.open a terminal ,and type the command step by step :
