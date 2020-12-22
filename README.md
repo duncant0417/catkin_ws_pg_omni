@@ -15,7 +15,7 @@ Some components comes from turtlebot3 ,including the lidar module ,some world en
 <br>
 And the model of Policy Gradient is base on :<br>
 
->>https://github.com/keon/policy-gradient/blob/master/pg.py
+>>https://github.com/keon/policy-gradient
 
 
 
