@@ -290,9 +290,9 @@ Move to catkin_ws_pg_omni folder and run:
         source ./devel/setup.bash
         roslaunch turtlebot3_navigation turtlebot3_navigation.launch
 <br>
-<br>
 Now rviz is open.
-
+<br>
+<br>
 3.Converge the particle as you did at PART 6.AMCL
 <br>
 <br>
