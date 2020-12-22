@@ -169,6 +169,7 @@ move to /catkin_ws_pg_omni/src/cmd_vel_keyboard/nodes folder
         python cmd_vel_keyboard.py
 <br>
 Now you can use your keyboard to control the omniweel ,and the rviz will show the map which is created by gmapping.
+<br>
 
 ![image](https://github.com/windlunar/catkin_ws_pg_omni/blob/main/picture/slam.png)
 
@@ -237,11 +238,11 @@ Press the "2D Pose Estimate" at the top of the rviz window ,And set the initial 
 
 
 You can now see some random particle distributed around the robot.<br>
-Use your keyboard move the robot ,
+Use your keyboard move the robot ,<br>
 
 ![image](https://github.com/windlunar/catkin_ws_pg_omni/blob/main/picture/amcl2.png)
 
-<br>Then you should observe that the particle converge to the real position of robot.
+<br>Then you should observe that the particle converge to the real position of robot.<br>
 
 ![image](https://github.com/windlunar/catkin_ws_pg_omni/blob/main/picture/amcl3.png)
 
