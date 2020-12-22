@@ -189,6 +189,7 @@ Then you should see your map "map.pgm" and "map.yaml"  has been saved.
 
 
 PART 6.AMCL
+=
 
 First, install amcl
 
