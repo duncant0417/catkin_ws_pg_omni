@@ -36,6 +36,12 @@ You can get the information about ros installation from :
 <br><br>
 2.After you setup your ros ,please install these following pakage if you haven't install yet :
 
+        sudo sh -c 'echo "deb http://packages.ros.org/ros/ubuntu $(lsb_release -sc) main" > /etc/apt/sources.list.d/ros-latest.list'
+
+        sudo apt-key adv --keyserver 'hkp://keyserver.ubuntu.com:80' --recv-key C1CF6E31E6BADE8868B172B4F42ED6FBAB17C654
+
+        sudo apt update
+        
         sudo apt-get install ros-melodic-ros-control
         sudo apt-get install ros-melodic-effort-controllers
         sudo apt-get install ros-melodic-joint-state-controller
@@ -104,7 +110,7 @@ PART 4.Training
         conda activate ros-env
         source /opt/ros/melodic/setup.bash
 <br>
-4. For the new terminal ,move to :<br>catkin_ws_pg_omni/src/omni_pg/nodes
+4. At new terminal ,move to :<br>catkin_ws_pg_omni/src/omni_pg/nodes
 <br>
 And type the following command to start tranning.
 
