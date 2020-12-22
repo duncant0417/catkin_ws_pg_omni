@@ -241,7 +241,6 @@ Move to the catkin_ws_pg_omni folder and run:
         source ./devel/setup.bash
         roslaunch turtlebot3_navigation turtlebot3_amcl.launch 
 
-        roslaunch turtlebot3_navigation turtlebot3_navigation.launch
 <br>
 <br>
 Now rviz is open again.
