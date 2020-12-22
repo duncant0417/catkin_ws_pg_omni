@@ -8,6 +8,7 @@
 	params="name color xyz rpy">
 
 		<link name="rim_${name}_link">
+			<gravity>true</gravity>
 			<inertial>
 				<origin xyz="0 0 -0.001029"/>
 				<mass value="0.22565466"/>

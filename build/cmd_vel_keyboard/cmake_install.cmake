@@ -61,6 +61,10 @@ if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/cmd_vel_keyboard" TYPE PROGRAM FILES "/home/user/catkin_ws_pg_omni/build/cmd_vel_keyboard/catkin_generated/installspace/omni_keyboard.py")
+endif()
+
+if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
   file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/cmd_vel_keyboard" TYPE DIRECTORY FILES "/home/user/catkin_ws_pg_omni/src/cmd_vel_keyboard/launch")
 endif()
 

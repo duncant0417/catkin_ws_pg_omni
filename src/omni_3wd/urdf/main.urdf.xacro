@@ -41,32 +41,31 @@
 
 
 	<link name="base_link">
+		<gravity>true</gravity>
+		<inertial>
+			<mass value="2.12299505415"/>
+			<inertia
+				ixx="0.00494744483"
+				ixy="0"
+				ixz="0"
+				iyy="0.00494744483"
+				iyz="0"
+				izz="0.00958868684"/>
+			</inertial>
+		<visual>
+			<geometry>
+				<mesh filename="package://omni_3wd/mesh/base.stl" scale="3.0 3.0 3.0"/>
 
-	<inertial>
-		<mass value="2.12299505415"/>
-		<inertia
-			ixx="0.00494744483"
-			ixy="0"
-			ixz="0"
-			iyy="0.00494744483"
-			iyz="0"
-			izz="0.00958868684"/>
-		</inertial>
-	<visual>
-		<geometry>
-			<mesh filename="package://omni_3wd/mesh/base.stl" scale="3.0 3.0 3.0"/>
-
-		</geometry>
-		<material name="base_material">
-			<color rgba="1 1 1 1"/>
-		</material>
-	</visual>
-	<collision>
-		<geometry>
-			<mesh filename="package://omni_3wd/mesh/base.stl" scale="3.0 3.0 3.0"/>
-		</geometry>
-	</collision>
-
+			</geometry>
+			<material name="base_material">
+				<color rgba="1 1 1 1"/>
+			</material>
+		</visual>
+		<collision>
+			<geometry>
+				<mesh filename="package://omni_3wd/mesh/base.stl" scale="3.0 3.0 3.0"/>
+			</geometry>
+		</collision>
 	</link>
 	<joint name="base_joint" type="fixed">
 		<parent link="base_footprint" />
@@ -127,11 +126,12 @@
         </joint>
 
         <link name="plate_1_link">
+			<gravity>true</gravity>
             <inertial>
-                <mass value="0.1" />
+                <mass value="1.0" />
                 <origin xyz="0 0 0" />
-                <inertia ixx="0.01" ixy="0.0" ixz="0.0"
-                         iyy="0.01" iyz="0.0" izz="0.01" />
+                <inertia ixx="0.16" ixy="0.0" ixz="0.0"
+                         iyy="0.16" iyz="0.0" izz="0.16" />
             </inertial>
 
             <visual>
@@ -435,7 +435,7 @@
 	      <ray>
 		<scan>
 		  <horizontal>
-		    <samples>24</samples>
+		    <samples>360</samples>
 		    <resolution>1</resolution>
 		    <min_angle>0.0</min_angle>
 		    <max_angle>6.28319</max_angle>

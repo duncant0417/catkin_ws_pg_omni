@@ -96,7 +96,7 @@ PART 4.Training
 2. Move to the catkin_ws_pg_omni folder , and type the following command.
 
         source ./devel/setup.bash
-        roslaunch omni_3wd velocity_controller.launch
+        roslaunch omni_3wd pg_env.launch
 <br>
 
 3. Open another terminal ,and type the same command to activate conda enviroment:
@@ -128,13 +128,6 @@ Install gmapping:
 <br>
 Close all the terminal.<br><br>
 
-Modified line 438 in main.urdf.xacro which place at /catkin_ws_pg_omni/src/omni_3wd/urdf/
-<br>
-from : \<samples\>24\</samples\>
-<br>
-to : 
-
-        \<samples\>360\</samples\>
 
 <br>
 1.Open a new terminal:
@@ -144,7 +137,7 @@ to :
 Move to the catkin_ws_pg_omni folder
 
         source ./devel/setup.bash
-        roslaunch omni_3wd velocity_controller.launch
+        roslaunch omni_3wd slam_env.launch
 <br>
 You can see the gazebo is open.
 <br><br>
@@ -169,7 +162,12 @@ Move to the catkin_ws_pg_omni folder
 <br>
 move to /catkin_ws_pg_omni/src/cmd_vel_keyboard/nodes folder
 
+        python omni_keyboard.py
+<br>
+or
+
         python cmd_vel_keyboard.py
+         
 <br>
 Now you can use your keyboard to control the omniweel ,and the rviz will show the map which is created by gmapping.
 <br>
@@ -220,7 +218,7 @@ Then, put your map(both "map.pgm" and "map.yaml") which was created by SLAM to t
 Move to the catkin_ws_pg_omni folder
 
         source ./devel/setup.bash
-        roslaunch omni_3wd velocity_controller.launch
+        roslaunch omni_3wd slam_env.launch
 <br>
 You can see the gazebo is open.
 <br>
@@ -232,6 +230,8 @@ You can see the gazebo is open.
 Move to the catkin_ws_pg_omni folder:
 
         source ./devel/setup.bash
+        roslaunch turtlebot3_navigation turtlebot3_amcl.launch 
+
         roslaunch turtlebot3_navigation turtlebot3_navigation.launch
 <br>
 <br>
@@ -253,7 +253,48 @@ Use your keyboard move the robot ,<br>
 ![image](https://github.com/windlunar/catkin_ws_pg_omni/blob/main/picture/amcl3.png)
 
 
-To navigation:
 
+PART 7.Navigation
+=
+
+Install the navigation pakage:
+
+        sudo sh -c 'echo "deb http://packages.ros.org/ros/ubuntu $(lsb_release -sc) main" > /etc/apt/sources.list.d/ros-latest.list'
+
+        sudo apt-key adv --keyserver 'hkp://keyserver.ubuntu.com:80' --recv-key C1CF6E31E6BADE8868B172B4F42ED6FBAB17C654
+
+        sudo apt update
         sudo apt-get install ros-melodic-navigation
 
+<br>
+1.Open a new terminal:
+
+        source /opt/ros/melodic/setup.bash
+<br>
+Move to the catkin_ws_pg_omni folder and run:
+
+        source ./devel/setup.bash
+        roslaunch omni_3wd slam_env.launch
+<br>
+You can see the gazebo is open.
+<br>
+<br>
+2.Open another terminal:
+
+        source /opt/ros/melodic/setup.bash
+<br>
+Move to the catkin_ws_pg_omni folder:
+
+        source ./devel/setup.bash
+        roslaunch turtlebot3_navigation turtlebot3_navigation.launch
+<br>
+<br>
+Now rviz is open.
+
+3.Converge the particle as you did at PART 6.AMCL
+<br>
+4.Press the "2D Nav Goal" at the top of rviz window.
+<br>
+5.Choose a place as the destination of robot ,and then click the left button of your mouse.
+<br>
+6.As you can see ,the robot auto navigate to the destination.
