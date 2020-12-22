@@ -104,7 +104,9 @@ PART 4.Training
         conda activate ros-env
         source /opt/ros/melodic/setup.bash
 <br>
-4. For the new terminal ,move to the catkin_ws_pg_omni/src/omni_pg/nodes , and type the following command to start tranning.
+4. For the new terminal ,move to :<br>catkin_ws_pg_omni/src/omni_pg/nodes
+<br>
+And type the following command to start tranning.
 
         python pg_main.py
 
