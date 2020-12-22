@@ -88,7 +88,7 @@ PART 3. Clone the project
 PART 4.Training
 =
 
-1.open a terminal ,and type the command step by step :
+1.open a terminal ,and type the commands :
 
         conda activate ros-env
         source /opt/ros/melodic/setup.bash
@@ -134,7 +134,7 @@ Close all the terminal.<br><br>
 
         source /opt/ros/melodic/setup.bash
 <br>
-Move to the catkin_ws_pg_omni folder
+Move to the catkin_ws_pg_omni folder and run:
 
         source ./devel/setup.bash
         roslaunch omni_3wd slam_env.launch
@@ -145,7 +145,7 @@ You can see the gazebo is open.
 
         source /opt/ros/melodic/setup.bash
 <br>
-Move to the catkin_ws_pg_omni folder
+Move to the catkin_ws_pg_omni folder and run:
 
         source ./devel/setup.bash
         roslaunch turtlebot3_slam turtlebot3_slam.launch
@@ -160,7 +160,8 @@ Move to the catkin_ws_pg_omni folder
 
         source ./devel/setup.bash
 <br>
-move to /catkin_ws_pg_omni/src/cmd_vel_keyboard/nodes folder
+move to "/catkin_ws_pg_omni/src/cmd_vel_keyboard/nodes" folder<br>
+And run the command to control robot by keyboard:
 
         python omni_keyboard.py
 <br>
@@ -171,14 +172,15 @@ or
 <br>
 Now you can use your keyboard to control the omniweel ,and the rviz will show the map which is created by gmapping.
 <br>
+<br>
 
 ![image](https://github.com/windlunar/catkin_ws_pg_omni/blob/main/picture/slam.png)
 
 <br><br>
-Cause I haven't map all the frame yet ,so you may not see some componets of omnibot.
+Cause I haven't map all the frame yet ,so you may see some componets of omnibot are missing in rviz.
 
 
-Install map_saver to save the map
+Install map_saver to save the map:
 
         sudo sh -c 'echo "deb http://packages.ros.org/ros/ubuntu $(lsb_release -sc) main" > /etc/apt/sources.list.d/ros-latest.list'
 
@@ -215,7 +217,7 @@ Then, put your map(both "map.pgm" and "map.yaml") which was created by SLAM to t
 
         source /opt/ros/melodic/setup.bash
 <br>
-Move to the catkin_ws_pg_omni folder
+Move to the catkin_ws_pg_omni folder and run:
 
         source ./devel/setup.bash
         roslaunch omni_3wd slam_env.launch
@@ -227,7 +229,7 @@ You can see the gazebo is open.
 
         source /opt/ros/melodic/setup.bash
 <br>
-Move to the catkin_ws_pg_omni folder:
+Move to the catkin_ws_pg_omni folder and run:
 
         source ./devel/setup.bash
         roslaunch turtlebot3_navigation turtlebot3_amcl.launch 
@@ -238,13 +240,13 @@ Move to the catkin_ws_pg_omni folder:
 Now rviz is open again.
 <br>
 
-Press the "2D Pose Estimate" at the top of the rviz window ,And set the initial position of robot<br>
+Click the "2D Pose Estimate" at the top of the rviz window ,And set the initial position of robot<br>
 
 ![image](https://github.com/windlunar/catkin_ws_pg_omni/blob/main/picture/amcl1.png)
 
 
-You can now see some random particle distributed around the robot.<br>
-Use your keyboard move the robot ,<br>
+You can now observe some particles around the robot.<br>
+Use your keyboard drive your robot go through the enviroment ,<br>
 
 ![image](https://github.com/windlunar/catkin_ws_pg_omni/blob/main/picture/amcl2.png)
 
@@ -283,7 +285,7 @@ You can see the gazebo is open.
 
         source /opt/ros/melodic/setup.bash
 <br>
-Move to the catkin_ws_pg_omni folder:
+Move to catkin_ws_pg_omni folder and run:
 
         source ./devel/setup.bash
         roslaunch turtlebot3_navigation turtlebot3_navigation.launch
@@ -293,8 +295,11 @@ Now rviz is open.
 
 3.Converge the particle as you did at PART 6.AMCL
 <br>
-4.Press the "2D Nav Goal" at the top of rviz window.
 <br>
-5.Choose a place as the destination of robot ,and then click the left button of your mouse.
+4.Click the "2D Nav Goal" at the top of rviz toolbar.
+<br>
+<br>
+5.Choose a place as the destination of robot ,and then click the left button.
+<br>
 <br>
 6.As you can see ,the robot auto navigate to the destination.
