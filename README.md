@@ -123,7 +123,16 @@ Install gmapping:
         sudo apt update
         sudo apt-get install ros-melodic-slam-gmapping
 <br>
-Close all the terminal.<br>
+Close all the terminal.<br><br>
+
+Modified line 438 in main.urdf.xacro which place at /catkin_ws_pg_omni/src/omni_3wd/urdf/
+<br>
+from : \<samples\>24\</samples\>
+<br>
+to : 
+
+        \<samples\>360\</samples\>
+
 <br>
 1.Open a new terminal:
 
