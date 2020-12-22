@@ -132,6 +132,7 @@ if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for each subdirectory.
   include("/home/user/catkin_ws_pg_omni/build/gtest/cmake_install.cmake")
   include("/home/user/catkin_ws_pg_omni/build/teleop_keyboard_omni3/cmake_install.cmake")
+  include("/home/user/catkin_ws_pg_omni/build/turtlebot3_navigation/cmake_install.cmake")
   include("/home/user/catkin_ws_pg_omni/build/cmd_vel_keyboard/cmake_install.cmake")
   include("/home/user/catkin_ws_pg_omni/build/omni_pg/cmake_install.cmake")
   include("/home/user/catkin_ws_pg_omni/build/turtlebot3_slam/cmake_install.cmake")

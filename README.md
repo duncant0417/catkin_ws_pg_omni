@@ -174,3 +174,59 @@ Now you can use your keyboard to control the omniweel ,and the rviz will show th
 
 <br><br>
 Cause I haven't map all the frame to map ,so you may not see some componets of omnibot.
+
+
+Install map_saver to save the map
+
+        sudo apt-get install ros-melodic-map-server
+
+Save your map:
+
+        rosrun map_server map_saver -f ./map
+
+Then you should see your map "map.pgm" and "map.yaml"  has been saved.
+
+
+
+PART 6.AMCL
+
+First, install amcl
+
+        sudo apt-get install ros-melodic-amcl
+<br>
+Then, put your map(both "map.pgm" and "map.yaml") which was created by SLAM to the folder :/catkin_ws_pg_omni/src/turtlebot3_navigation/maps/
+<br>
+<br>
+1.Open a new terminal:
+
+        source /opt/ros/melodic/setup.bash
+<br>
+Move to the catkin_ws_pg_omni folder
+
+        source ./devel/setup.bash
+        roslaunch omni_3wd velocity_controller.launch
+<br>
+You can see the gazebo is open.
+<br>
+<br>
+2.Open another terminal:
+
+        source /opt/ros/melodic/setup.bash
+<br>
+Move to the catkin_ws_pg_omni folder:
+
+        source ./devel/setup.bash
+        roslaunch turtlebot3_navigation turtlebot3_navigation.launch
+<br>
+<br>
+Now rviz is open again.
+<br>
+
+Press the "2D Pose Estimate" at the top of the rviz window ,And set the initial position of robot<br>
+
+You can now see some random particle distributed around the robot.<br>
+Use your keyboard move the robot ,
+<br>Then you should observe that the particle converge to the real position of robot.
+
+
+

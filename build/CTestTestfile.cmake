@@ -6,6 +6,7 @@
 # testing this directory and lists subdirectories to be tested as well.
 subdirs("gtest")
 subdirs("teleop_keyboard_omni3")
+subdirs("turtlebot3_navigation")
 subdirs("cmd_vel_keyboard")
 subdirs("omni_pg")
 subdirs("turtlebot3_slam")

@@ -502,6 +502,12 @@ tf_DIR:PATH=/opt/ros/melodic/share/tf/cmake
 trajectory_msgs_DIR:PATH=/opt/ros/melodic/share/trajectory_msgs/cmake
 
 //Value Computed by CMake
+turtlebot3_navigation_BINARY_DIR:STATIC=/home/user/catkin_ws_pg_omni/build/turtlebot3_navigation
+
+//Value Computed by CMake
+turtlebot3_navigation_SOURCE_DIR:STATIC=/home/user/catkin_ws_pg_omni/src/turtlebot3_navigation
+
+//Value Computed by CMake
 turtlebot3_slam_BINARY_DIR:STATIC=/home/user/catkin_ws_pg_omni/build/turtlebot3_slam
 
 //Value Computed by CMake
@@ -626,7 +632,7 @@ CMAKE_MODULE_LINKER_FLAGS_RELWITHDEBINFO-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: CMAKE_NM
 CMAKE_NM-ADVANCED:INTERNAL=1
 //number of local generators
-CMAKE_NUMBER_OF_MAKEFILES:INTERNAL=9
+CMAKE_NUMBER_OF_MAKEFILES:INTERNAL=10
 //ADVANCED property for variable: CMAKE_OBJCOPY
 CMAKE_OBJCOPY-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: CMAKE_OBJDUMP
