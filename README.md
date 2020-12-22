@@ -19,7 +19,7 @@ And the model of Policy Gradient is base on :<br>
 
 
 
-PART 1. Enviroment Setting:
+PART 1. Enviroment Setup:
 =
 <br>
 Operation system : Ubuntu 18.04
