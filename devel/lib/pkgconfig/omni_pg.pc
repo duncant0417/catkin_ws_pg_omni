@@ -1,8 +1,0 @@
-prefix=/home/user/catkin_ws_pg_omni/devel
-
-Name: omni_pg
-Description: Description of omni_pg
-Version: 1.0.0
-Cflags: 
-Libs: -L${prefix}/lib 
-Requires: rospy

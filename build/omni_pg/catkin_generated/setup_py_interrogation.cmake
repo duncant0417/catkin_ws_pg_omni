@@ -1,7 +1,0 @@
-set(omni_pg_SETUP_PY_SETUP_MODULE "distutils.core")
-set(omni_pg_SETUP_PY_VERSION "1.0.0")
-set(omni_pg_SETUP_PY_SCRIPTS "")
-set(omni_pg_SETUP_PY_PACKAGES "")
-set(omni_pg_SETUP_PY_PACKAGE_DIRS "")
-set(omni_pg_SETUP_PY_MODULES "")
-set(omni_pg_SETUP_PY_MODULE_DIRS "")
