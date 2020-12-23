@@ -262,9 +262,9 @@ Use your keyboard drive your robot go through the enviroment ,<br>
 
 
 
-PART 7.Navigation
-=
-
+Navigation.
+<br>
+<br>
 Install the navigation pakage:
 
         sudo sh -c 'echo "deb http://packages.ros.org/ros/ubuntu $(lsb_release -sc) main" > /etc/apt/sources.list.d/ros-latest.list'
