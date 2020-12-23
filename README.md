@@ -88,6 +88,8 @@ PART 3. Clone the project
 2. clone the repo:
 
         git clone https://github.com/windlunar/catkin_ws_pg_omni
+        cd catkin_ws_pg_omni/
+        catkin_make
 
 
 
