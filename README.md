@@ -92,12 +92,13 @@ PART 3. Clone the project
         cd catkin_ws_pg_omni/
         catkin_make
 
-
+<br>
+Close all the terminal.<br><br>
 
 PART 4.Training
 =
 
-1.open a terminal ,and type the commands :
+1.open a new terminal ,and type the commands :
 
         conda activate ros-env
         source /opt/ros/melodic/setup.bash
